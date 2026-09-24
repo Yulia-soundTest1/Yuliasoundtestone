@@ -39,6 +39,13 @@ const drumSynth = new Tone.MembraneSynth({
 
 
 // arrays for random pitch.
+
+// I choose some higher pitch notes for Sun to fit the warm and positive feeling.
+// rain notes and wind notes are lower pitch as a softer feeling
+// thunder notes are the lowest so that it can be associated with thunder's sound.
+
+
+
 const sunNotes=[ "C4", "D4", "E4", "G4", "A4",
     "C5", "D5", "E5", "G5", "A5",
     "C6", "E6"];
@@ -88,6 +95,11 @@ introDialogClose.addEventListener('click', async function (){
 // }
 
 // add click events to weather elements
+
+
+
+// Each element has different length of notes to provide various feelings.
+// Sun is shorter as it gives quite neutral feeling in length.
 sun.addEventListener ("click", function() {
     const note = pickRandomNote(sunNotes);
 
@@ -95,6 +107,7 @@ sun.addEventListener ("click", function() {
     createFallingEmoji(sun,"☀");
 });
 
+// Rain uses a slightly longer note length to evoke the feeling of long, thin strands of falling rain.
 rain.addEventListener ("click", function() {
     const note = pickRandomNote(rainNotes);
 
@@ -102,6 +115,7 @@ rain.addEventListener ("click", function() {
     createFallingEmoji(rain, "💧");
 });
 
+// Thunder uses a drum-like low-pitched sound with the shortest note length to create a heavy and powerful impact, similar to the sound of thunder.
 thunder.addEventListener("click", function() {
     const note = pickRandomNote(thunderNotes);
 
@@ -109,6 +123,8 @@ thunder.addEventListener("click", function() {
     createFallingEmoji(thunder, "⚡");
 });
 
+
+// Wind uses the longest note length to evoke the feeling of a gust of wind sweeping past.
 wind.addEventListener("click", function() {
     const note = pickRandomNote(windNotes);
 
@@ -116,6 +132,7 @@ wind.addEventListener("click", function() {
     createFallingEmoji(wind, "🍃");
 });
 
+// The drum uses a separate, very short note length to create a stronger sense of rhythm.
 drum.addEventListener("click", function (){
     const note = pickRandomNote(drumNotes);
 
@@ -161,6 +178,7 @@ function playDrumSound() {
 
 
 // show animation when the falling Emoji hit the Drum
+// I think the drum hit feels a little plain without visual feedback. Adding a visual response to the impact could strengthen the sense of collision and make the interaction feel more engaging.
 
 function showDrumHit(){
     drum.classList.add('drumHit');
